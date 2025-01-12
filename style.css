@@ -18,29 +18,36 @@
 body {
   background-color: var(--greyblack);
   color: var(--text); /* Set text color to white for better contrast */
-  
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  text-align: center; /* Center-align text */
+  min-height: 100vh; /* Full viewport height */
+  margin: 0;
   position: relative;
-  overflow: hidden;
+  height: 100vh;
   font-family: 'Inter', Arial;
+
 }
 .logo-container{
-  transform: scale(0.6);
-  position: absolute;
+  transform: scale(0.7);
+  position: relative;
+  right: 70px;
+  padding: 0 1.5rem;
   
 }
 .logo{
   display: flex;
   flex-direction: row;
-  height: 50px;
+  height: 80px;
   justify-content: left;
   text-align: center;
   padding: 20px;
-  box-sizing: content-box;
+  
 
 }
 
 .logo p {
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
   margin: 0.5rem 0;
   font-style: italic;
@@ -131,9 +138,10 @@ body {
 
 .another-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .container {
@@ -254,8 +262,124 @@ svg:hover {
   fill: var(--orange); /* Darker color on hover */
 }
 
+.task-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(45deg, #ffffff, #ffd1a9); /* Matches your gradient theme */
+  border: 2px solid var(--orange);
+  border-radius: 30px;
+  padding: 10px 15px;
+  margin: 10px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  gap: 10px;
+  transition: box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 600px;
+  z-index: 5;
+}
+
+.task-card:hover {
+  box-shadow: 0 5px 20px rgba(255, 140, 0, 0.937);
+}
+
+
+
+.to-do{
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.task-checkbox {
+  margin-right: 10px;
+  
+  transform: scale(1.2); /* Slightly larger checkbox */
+}
+
+.task-input {
+  flex: 1; /* Take available space */
+  border: none;
+  border-bottom: 2px solid var(--orange);
+  font-size: 16px;
+  padding: 5px;
+  color: var(--greyblack);
+  background: transparent;
+  outline: none;
+  
+}
+
+.task-input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.task-buttons {
+  display: flex;
+  gap: 10px;
+  margin-left: 9px;
+}
+
+.edit-button, .delete-button {
+  background-color: transparent;
+ 
+  border: 2px solid var(--orange);
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.edit-button:hover, .delete-button:hover {
+  background-color: var(--orange);
+  color: var(--text);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
+
+
+  .logo-container{
+    transform: scale(0.4);
+    position: relative;
+    right: 70px;
+    
+  }
+
+.task-card {
+  max-width: 80%;
+}
+
+.to-do{
+  max-width: 100%;
+  
+}
+
+.task-input{
+  
+  font-size:  12px;;
+}
   .heading {
     font-size: 48px;
     line-height: 1.2;
@@ -292,6 +416,8 @@ svg:hover {
 
 @media (max-width: 480px) {
 
+  
+
   .powered{
     font-size: 7px;
   }
@@ -322,8 +448,8 @@ svg:hover {
   }
 
   .glow {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 150px;
     filter: blur(50px);
   }
 }
